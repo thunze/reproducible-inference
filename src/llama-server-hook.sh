@@ -18,6 +18,8 @@ llamaServerStart() {
     --retry-all-errors \
     -o /dev/null \
     http://127.0.0.1:8080/health
+  
+  echo "Successfully started llama.cpp server!"
 }
 
 llamaServerStop() {
