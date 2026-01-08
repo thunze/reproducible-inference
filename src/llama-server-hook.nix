@@ -1,5 +1,7 @@
 {
+  # Dependencies
   makeSetupHook,
+  curl,
   llama-cpp,
 
   # Model to be hosted by llama.cpp server in GGUF format, e.g. fetched using fetchurl
@@ -36,6 +38,7 @@ makeSetupHook {
   name = "llama-server-hook";
 
   propagatedBuildInputs = [
+    curl
     llamaCppPkg
   ];
 

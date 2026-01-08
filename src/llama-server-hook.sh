@@ -11,6 +11,13 @@ llamaServerStart() {
     --ctx-size 0 &  # Load prompt context size from model
 
   llama_server_pid=$!
+
+  # Wait for the server to start and be healthy, time out after 3 retries
+  curl \
+    --retry 3 \
+    --retry-all-errors \
+    -o /dev/null \
+    http://127.0.0.1:8080/health
 }
 
 llamaServerStop() {
