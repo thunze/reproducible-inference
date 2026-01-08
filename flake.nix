@@ -23,6 +23,14 @@
         );
     in
     {
+      packages = forAllSystems (
+        { pkgs }:
+        rec {
+          llamaServerHook = pkgs.callPackage ./src/llama-server-hook.nix { };
+          tests = pkgs.callPackage ./tests { inherit llamaServerHook; };
+        }
+      );
+
       devShells = forAllSystems (
         { pkgs }:
         {
