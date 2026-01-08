@@ -38,6 +38,7 @@
             packages = with pkgs; [
               bashInteractive
               nixfmt
+              llama-cpp
             ];
           };
         }
