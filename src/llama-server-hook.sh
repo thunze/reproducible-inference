@@ -23,5 +23,6 @@ llamaServerStart() {
 llamaServerStop() {
   echo "Stopping llama.cpp server..."
 
+  kill -s TERM $llama_server_pid
   wait -n $llama_server_pid
 }
