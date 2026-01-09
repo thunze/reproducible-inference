@@ -20,4 +20,5 @@ let
 in
 {
   hello-curl = callTest ./hello-curl;
+  hello-python = callTest ./hello-python;
 }
