@@ -19,5 +19,5 @@ let
     };
 in
 {
-  hello-curl = callTest ./hello-curl.nix;
+  hello-curl = callTest ./hello-curl;
 }
