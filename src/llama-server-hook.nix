@@ -22,9 +22,11 @@ assert builtins.elem acceleration [
 ];
 
 let
+  someAcceleration = acceleration != false;
+
   # Configure llama-cpp package for `acceleration`
   llamaCppPkg =
-    if !acceleration then
+    if !someAcceleration then
       llama-cpp
     else
       {
@@ -48,7 +50,7 @@ makeSetupHook {
     # Using an absurdly large number for --gpu-layers here because llama.cpp
     # apparently doesn't support requesting that all model layers be loaded
     # into VRAM.
-    gpu_layers = if acceleration then 9999 else 0;
+    gpu_layers = if someAcceleration then 9999 else 0;
   };
 
 } ./llama-server-hook.sh
