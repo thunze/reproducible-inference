@@ -6,7 +6,7 @@
 }:
 
 stdenv.mkDerivation {
-  name = "llama-server-hook-test-hello-curl";
+  name = "reproducible-inference-test-hello-curl";
 
   # We don't need to unpack any sources.
   dontUnpack = true;

@@ -8,7 +8,7 @@ let
   python = python3.withPackages (ps: with ps; [ openai ]);
 in
 stdenv.mkDerivation {
-  name = "llama-server-hook-test-hello-python";
+  name = "reproducible-inference-test-hello-python";
 
   src = ./.;
 
