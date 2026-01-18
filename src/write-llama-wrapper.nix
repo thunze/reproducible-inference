@@ -81,7 +81,8 @@ writeShellApplication {
       --model ${model} \
       --seed ${builtins.toString seed} \
       --gpu-layers ${builtins.toString gpuLayers} \
-      --ctx-size 0 &  # Load prompt context size from model
+      --ctx-size 0 \
+      --no-warmup &
 
     llama_server_pid=$!
 
