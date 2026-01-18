@@ -72,8 +72,15 @@ writeShellApplication {
     llamaCppPkg
   ];
 
-  # Redirect all output except that of the wrapped application to stderr
-  # to keep stdout clean for the wrapped application.
+  # llama-server flags used:
+  #
+  #   --model        Path to GGUF model file
+  #   --seed         RNG seed for reproducibility
+  #   --ctx-size 0   Load prompt context size from model
+  #   --no-warmup    Avoid unnecessary GPU warmup time
+  #
+  # Using `>&2` to redirect all output except that of the wrapped application
+  # to stderr to keep stdout clean for the wrapped application.
   text = ''
     >&2 echo "Starting llama.cpp server..."
 
