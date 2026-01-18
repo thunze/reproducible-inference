@@ -1,9 +1,6 @@
 {
-  # Dependencies
-  makeSetupHook,
-  cudaPackages,
-  curl,
-  llama-cpp,
+  # Derivation whose main program to wrap (determined via `lib.getExe`)
+  unwrapped,
 
   # Model to be hosted by llama.cpp server in GGUF format, e.g. fetched using fetchurl
   model,
@@ -28,6 +25,13 @@
 
   # RNG seed used by llama.cpp
   seed ? 42,
+
+  # Dependencies
+  lib,
+  writeShellApplication,
+  cudaPackages,
+  curl,
+  llama-cpp,
 }:
 
 assert builtins.elem acceleration [
@@ -54,22 +58,50 @@ let
         };
       }
       .${acceleration};
-in
-makeSetupHook {
-  name = "llama-server-hook";
 
-  propagatedBuildInputs = [
+  # Using an absurdly large number for --gpu-layers here because llama.cpp
+  # apparently doesn't support requesting that all model layers be loaded
+  # into VRAM.
+  gpuLayers = if someAcceleration then 9999 else 0;
+in
+writeShellApplication {
+  name = "${unwrapped.name}-wrapped";
+
+  runtimeInputs = [
     curl
     llamaCppPkg
   ];
 
-  substitutions = {
-    inherit model seed;
+  # Redirect all output except that of the wrapped application to stderr
+  # to keep stdout clean for the wrapped application.
+  text = ''
+    >&2 echo "Starting llama.cpp server..."
 
-    # Using an absurdly large number for --gpu-layers here because llama.cpp
-    # apparently doesn't support requesting that all model layers be loaded
-    # into VRAM.
-    gpu_layers = if someAcceleration then 9999 else 0;
-  };
+    >&2 llama-server \
+      --model ${model} \
+      --seed ${builtins.toString seed} \
+      --gpu-layers ${builtins.toString gpuLayers} \
+      --ctx-size 0 &  # Load prompt context size from model
 
-} ./llama-server-hook.sh
+    llama_server_pid=$!
+
+    # Wait for the server to start and be healthy, time out after 3 retries
+    >&2 curl \
+      --retry 3 \
+      --retry-all-errors \
+      -o /dev/null \
+      http://127.0.0.1:8080/health
+
+    >&2 echo "Successfully started llama.cpp server!"
+
+    ${lib.getExe unwrapped} "$@"
+    status=$?
+
+    >&2 echo "Stopping llama.cpp server..."
+
+    >&2 kill -s TERM $llama_server_pid
+    >&2 wait -n $llama_server_pid
+
+    exit "$status"
+  '';
+}

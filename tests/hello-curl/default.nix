@@ -1,27 +1,18 @@
 {
-  stdenv,
-  llamaServerHook,
+  writeShellApplication,
   curl,
   jq,
 }:
 
-stdenv.mkDerivation {
+writeShellApplication {
   name = "reproducible-inference-test-hello-curl";
 
-  # We don't need to unpack any sources.
-  dontUnpack = true;
-
-  nativeBuildInputs = [
-    llamaServerHook
+  runtimeInputs = [
     curl
     jq
   ];
 
-  buildPhase = ''
-    runHook preBuild
-
-    mkdir -p $out
-
+  text = ''
     curl http://127.0.0.1:8080/v1/chat/completions \
       -H "Content-Type: application/json" \
       -d '{
@@ -29,11 +20,6 @@ stdenv.mkDerivation {
           {"role": "user", "content": "Hello, world!"}
         ]
       }' \
-      | jq -r '.choices.[0].message.content' \
-      > $out/response.txt
-    
-    cat $out/response.txt
-
-    runHook postBuild
+      | jq -r '.choices.[0].message.content'
   '';
 }

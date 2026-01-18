@@ -1,34 +1,21 @@
 {
   stdenv,
-  llamaServerHook,
   python3,
 }:
 
-let
-  python = python3.withPackages (ps: with ps; [ openai ]);
-in
 stdenv.mkDerivation {
   name = "reproducible-inference-test-hello-python";
 
-  src = ./.;
+  dontUnpack = true;
 
-  nativeBuildInputs = [
-    llamaServerHook
+  buildInputs = [
+    (python3.withPackages (ps: with ps; [ openai ]))
   ];
 
-  # stdenv sets `SSL_CERT_FILE` to a non-existent file by default and httpx
-  # always reads the file at `$SSL_CERT_FILE` if set.
-  preBuild = ''
-    unset SSL_CERT_FILE
+  installPhase = ''
+    mkdir -p $out/bin
+    cp -a ${./hello.py} $out/bin/hello
   '';
 
-  buildPhase = ''
-    runHook preBuild
-
-    mkdir -p $out
-
-    ${python.interpreter} main.py
-
-    runHook postBuild
-  '';
+  meta.mainProgram = "hello";
 }
