@@ -31,6 +31,7 @@ in
     conversation-long = writeTest ./conversation-long "cpu";
     hello-curl = writeTest ./hello-curl "cpu";
     hello-python = writeTest ./hello-python "cpu";
+    high-temperature = writeTest ./high-temperature "cpu";
     ten-paragraphs = writeTest ./ten-paragraphs "cpu";
   };
   cuda = {
@@ -38,6 +39,7 @@ in
     conversation-long = writeTest ./conversation-long "cuda";
     hello-curl = writeTest ./hello-curl "cuda";
     hello-python = writeTest ./hello-python "cuda";
+    high-temperature = writeTest ./high-temperature "cuda";
     ten-paragraphs = writeTest ./ten-paragraphs "cuda";
   };
 }
