@@ -82,6 +82,16 @@ writeShellApplication {
   # Using `>&2` to redirect all output except that of the wrapped application
   # to stderr to keep stdout clean for the wrapped application.
   text = ''
+    cleanup() {
+      if [[ -n "''${llama_server_pid:-}" ]]; then
+        >&2 echo "Stopping llama.cpp server..."
+        >&2 kill -s TERM "$llama_server_pid"
+        >&2 wait -n "$llama_server_pid"
+      fi
+    }
+
+    trap cleanup EXIT
+
     >&2 echo "Starting llama.cpp server..."
 
     >&2 llama-server \
@@ -103,13 +113,5 @@ writeShellApplication {
     >&2 echo "Successfully started llama.cpp server!"
 
     ${lib.getExe unwrapped} "$@"
-    status=$?
-
-    >&2 echo "Stopping llama.cpp server..."
-
-    >&2 kill -s TERM $llama_server_pid
-    >&2 wait -n $llama_server_pid
-
-    exit "$status"
   '';
 }
