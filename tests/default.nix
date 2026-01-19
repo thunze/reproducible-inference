@@ -43,6 +43,7 @@ in
     hello-python = writeTest ./hello-python "cpu";
     high-temperature = writeTest ./high-temperature "cpu";
     ten-paragraphs = writeTest ./ten-paragraphs "cpu";
+    ten-paragraphs-logprobs = writeTest ./ten-paragraphs-logprobs "cpu";
   };
   cuda = {
     conversation-basic = writeTest ./conversation-basic "cuda";
@@ -51,5 +52,6 @@ in
     hello-python = writeTest ./hello-python "cuda";
     high-temperature = writeTest ./high-temperature "cuda";
     ten-paragraphs = writeTest ./ten-paragraphs "cuda";
+    ten-paragraphs-logprobs = writeTest ./ten-paragraphs-logprobs "cuda";
   };
 }
