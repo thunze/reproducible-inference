@@ -28,12 +28,14 @@ in
 {
   cpu = {
     conversation-basic = writeTest ./conversation-basic "cpu";
+    conversation-long = writeTest ./conversation-long "cpu";
     hello-curl = writeTest ./hello-curl "cpu";
     hello-python = writeTest ./hello-python "cpu";
     ten-paragraphs = writeTest ./ten-paragraphs "cpu";
   };
   cuda = {
     conversation-basic = writeTest ./conversation-basic "cuda";
+    conversation-long = writeTest ./conversation-long "cuda";
     hello-curl = writeTest ./hello-curl "cuda";
     hello-python = writeTest ./hello-python "cuda";
     ten-paragraphs = writeTest ./ten-paragraphs "cuda";
