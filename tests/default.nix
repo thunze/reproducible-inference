@@ -42,6 +42,7 @@ in
     hello-curl = writeTest ./hello-curl "cpu";
     hello-python = writeTest ./hello-python "cpu";
     high-temperature = writeTest ./high-temperature "cpu";
+    long-input = writeTest ./long-input "cpu";
     ten-paragraphs = writeTest ./ten-paragraphs "cpu";
     ten-paragraphs-logprobs = writeTest ./ten-paragraphs-logprobs "cpu";
   };
@@ -51,6 +52,7 @@ in
     hello-curl = writeTest ./hello-curl "cuda";
     hello-python = writeTest ./hello-python "cuda";
     high-temperature = writeTest ./high-temperature "cuda";
+    long-input = writeTest ./long-input "cuda";
     ten-paragraphs = writeTest ./ten-paragraphs "cuda";
     ten-paragraphs-logprobs = writeTest ./ten-paragraphs-logprobs "cuda";
   };
