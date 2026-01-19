@@ -5,15 +5,25 @@
 }:
 
 let
+  gemma-3-270m = fetchurl {
+    url = "https://huggingface.co/ggml-org/gemma-3-270m-it-GGUF/resolve/main/gemma-3-270m-it-Q8_0.gguf";
+    hash = "sha256-DvV9LIOEWKGVJmQmDcujjlvdo3SU869zLwbkrdJAaOM=";
+  };
+  gemma-3-1b = fetchurl {
+    url = "https://huggingface.co/ggml-org/gemma-3-1b-it-GGUF/resolve/main/gemma-3-1b-it-Q8_0.gguf";
+    hash = "sha256-sgWEDF3O9VB44300RneGmnFP/UKkrkSMSNz7UuS7ENU=";
+  };
+  gemma-3-4b = fetchurl {
+    url = "https://huggingface.co/ggml-org/gemma-3-4b-it-GGUF/resolve/main/gemma-3-4b-it-Q4_K_M.gguf";
+    hash = "sha256-iC6NLbRNxVT7DqUHfLfkvEnnNCofDaV5AcCALqIaCGM=";
+  };
+
   writeTest =
     module: acceleration:
     callPackage ../src/write-llama-wrapper.nix (
       {
         unwrapped = callPackage module { };
-        model = fetchurl {
-          url = "https://huggingface.co/ggml-org/gemma-3-270m-it-GGUF/resolve/main/gemma-3-270m-it-Q8_0.gguf";
-          hash = "sha256-DvV9LIOEWKGVJmQmDcujjlvdo3SU869zLwbkrdJAaOM=";
-        };
+        model = gemma-3-270m;
         acceleration = if acceleration == "cpu" then false else acceleration;
       }
       // lib.optionalAttrs (acceleration == "cuda") {
