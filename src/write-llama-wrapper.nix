@@ -76,6 +76,7 @@ writeShellApplication {
   #
   #   --model        Path to GGUF model file
   #   --seed         RNG seed for reproducibility
+  #   --gpu-layers   Number of model layers to load into GPU memory
   #   --ctx-size 0   Load prompt context size from model
   #   --no-warmup    Avoid unnecessary GPU warmup time
   #
