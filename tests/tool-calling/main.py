@@ -2,6 +2,7 @@
 
 from datetime import datetime
 
+from langchain.agents import create_agent
 from langchain_core.tools import tool
 from langchain_openai import ChatOpenAI
 
@@ -27,17 +28,25 @@ def get_weather(location: str) -> str:
         return "Rainy, 55F"
 
 
-llm = ChatOpenAI(base_url="http://localhost:8080/v1", api_key="")
-llm_with_tools = llm.bind_tools([get_datetime, get_weather])
+model = ChatOpenAI(base_url="http://localhost:8080/v1", api_key="")
 
-response = llm_with_tools.invoke(
-    [
-        (
-            "system",
-            "You are a helpful assistant that can use tools to answer user queries.",
-        ),
-        ("user", "What time is it?"),
-    ],
+agent = create_agent(
+    model,
+    tools=[get_datetime, get_weather],
+    system_prompt="You are a helpful assistant that can use tools to answer questions.",
 )
 
-print(response)
+initial_input = {"messages": [{"role": "user", "content": "What time is it?"}]}
+
+
+stream = agent.stream(initial_input, stream_mode="values")
+next_batch_start = -1  # Start from the last message to skip previous invocations
+
+for event in stream:
+    messages = event["messages"]
+
+    for message in messages[next_batch_start:]:
+        print()
+        message.pretty_print()
+
+    next_batch_start = len(messages)
