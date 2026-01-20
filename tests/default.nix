@@ -45,6 +45,7 @@ in
     long-input = writeTest ./long-input "cpu";
     ten-paragraphs = writeTest ./ten-paragraphs "cpu";
     ten-paragraphs-logprobs = writeTest ./ten-paragraphs-logprobs "cpu";
+    tool-calling = writeTest ./tool-calling "cpu";
   };
   cuda = {
     conversation-basic = writeTest ./conversation-basic "cuda";
@@ -55,5 +56,6 @@ in
     long-input = writeTest ./long-input "cuda";
     ten-paragraphs = writeTest ./ten-paragraphs "cuda";
     ten-paragraphs-logprobs = writeTest ./ten-paragraphs-logprobs "cuda";
+    tool-calling = writeTest ./tool-calling "cuda";
   };
 }
