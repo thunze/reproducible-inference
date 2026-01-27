@@ -60,6 +60,9 @@ def main():
 
     # AI responds with tool call
     ai_message_time = llm_with_tools.invoke(messages)
+    ai_message_time.tool_calls = [
+        call | {"id": ""} for call in ai_message_time.tool_calls
+    ] # Clear tool call IDs for reproducibility
     ai_message_time.pretty_print()
     messages.append(ai_message_time)
 
@@ -84,6 +87,9 @@ def main():
 
     # AI responds with tool call
     ai_message_weather = llm_with_tools.invoke(messages)
+    ai_message_weather.tool_calls = [
+        call | {"id": ""} for call in ai_message_weather.tool_calls
+    ] # Clear tool call IDs for reproducibility
     ai_message_weather.pretty_print()
     messages.append(ai_message_weather)
     
