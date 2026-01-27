@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from datetime import datetime
+from itertools import count
 
 from langchain.messages import HumanMessage, SystemMessage
 from langchain_core.tools import tool
@@ -41,6 +41,7 @@ def main():
     llm_with_tools = llm.bind_tools([get_datetime, get_weather])
 
     messages = []
+    tool_call_id_counter = count()
 
     # System message
     system_message = SystemMessage(
@@ -60,9 +61,11 @@ def main():
 
     # AI responds with tool call
     ai_message_time = llm_with_tools.invoke(messages)
+    # Replace random tool call IDs with deterministic ones for reproducibility
     ai_message_time.tool_calls = [
-        call | {"id": ""} for call in ai_message_time.tool_calls
-    ] # Clear tool call IDs for reproducibility
+        call | {"id": str(next(tool_call_id_counter))}
+        for call in ai_message_time.tool_calls
+    ]
     ai_message_time.pretty_print()
     messages.append(ai_message_time)
 
@@ -87,9 +90,11 @@ def main():
 
     # AI responds with tool call
     ai_message_weather = llm_with_tools.invoke(messages)
+    # Replace random tool call IDs with deterministic ones for reproducibility
     ai_message_weather.tool_calls = [
-        call | {"id": ""} for call in ai_message_weather.tool_calls
-    ] # Clear tool call IDs for reproducibility
+        call | {"id": str(next(tool_call_id_counter))}
+        for call in ai_message_weather.tool_calls
+    ]
     ai_message_weather.pretty_print()
     messages.append(ai_message_weather)
     
