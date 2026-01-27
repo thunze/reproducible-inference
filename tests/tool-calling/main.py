@@ -46,8 +46,8 @@ def main():
     # System message
     system_message = SystemMessage(
         "You are a helpful assistant. You can use tools to get the current time and "
-        "weather information. Once you have the information, provide a concise "
-        "answer to the user."
+        "weather information. Once you have the information, provide an answer to "
+        "user."
     )
     system_message.pretty_print()
     messages.append(system_message)
