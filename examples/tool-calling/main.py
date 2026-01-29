@@ -110,9 +110,6 @@ def main():
     ai_message_weather_final.pretty_print()
     messages.append(ai_message_weather_final)
 
-    for message in messages:
-        message.pretty_print()
-
 
 if __name__ == "__main__":
     main()
