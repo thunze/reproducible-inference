@@ -27,7 +27,7 @@
         { pkgs }:
         {
           llamaServerHook = pkgs.callPackage ./src/llama-server-hook.nix { };
-          tests = pkgs.callPackage ./tests { };
+          examples = pkgs.callPackage ./examples { };
         }
       );
 
