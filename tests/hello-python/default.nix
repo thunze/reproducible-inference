@@ -14,7 +14,7 @@ stdenv.mkDerivation {
 
   installPhase = ''
     mkdir -p $out/bin
-    cp -a ${./hello.py} $out/bin/hello
+    cp -a ${./main.py} $out/bin/hello
   '';
 
   meta.mainProgram = "hello";

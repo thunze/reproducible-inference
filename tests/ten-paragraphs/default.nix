@@ -14,7 +14,7 @@ stdenv.mkDerivation {
 
   installPhase = ''
     mkdir -p $out/bin
-    cp -a ${./ten_paragraphs.py} $out/bin/ten_paragraphs
+    cp -a ${./main.py} $out/bin/ten_paragraphs
   '';
 
   meta.mainProgram = "ten_paragraphs";
