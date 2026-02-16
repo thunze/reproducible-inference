@@ -36,7 +36,7 @@
         {
           default = pkgs.mkShell {
             packages = with pkgs; [
-              bashInteractive
+              bash
               nixfmt
               llama-cpp
             ];
