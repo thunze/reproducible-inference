@@ -5,26 +5,61 @@
 }:
 
 let
-  gemma-3-270m = fetchurl {
-    url = "https://huggingface.co/ggml-org/gemma-3-270m-it-GGUF/resolve/main/gemma-3-270m-it-Q8_0.gguf";
-    hash = "sha256-DvV9LIOEWKGVJmQmDcujjlvdo3SU869zLwbkrdJAaOM=";
-  };
-  gemma-3-1b = fetchurl {
-    url = "https://huggingface.co/ggml-org/gemma-3-1b-it-GGUF/resolve/main/gemma-3-1b-it-Q8_0.gguf";
-    hash = "sha256-sgWEDF3O9VB44300RneGmnFP/UKkrkSMSNz7UuS7ENU=";
-  };
-  gemma-3-4b = fetchurl {
-    url = "https://huggingface.co/ggml-org/gemma-3-4b-it-GGUF/resolve/main/gemma-3-4b-it-Q4_K_M.gguf";
-    hash = "sha256-iC6NLbRNxVT7DqUHfLfkvEnnNCofDaV5AcCALqIaCGM=";
+  # Acceleration types to test with.
+  accelerations = [
+    # Run purely on the CPU, with no GPU acceleration.
+    "cpu"
+    # Run with CUDA acceleration on NVIDIA GPUs. Requires a compatible
+    # NVIDIA GPU and driver installed.
+    "cuda"
+  ];
+
+  # List of large language models to test with. Each model evaluates to a
+  # model file in GGUF format.
+  models = {
+    gemma-3-270m = fetchurl {
+      url = "https://huggingface.co/ggml-org/gemma-3-270m-it-GGUF/resolve/main/gemma-3-270m-it-Q8_0.gguf";
+      hash = "sha256-DvV9LIOEWKGVJmQmDcujjlvdo3SU869zLwbkrdJAaOM=";
+    };
+    gemma-3-1b = fetchurl {
+      url = "https://huggingface.co/ggml-org/gemma-3-1b-it-GGUF/resolve/main/gemma-3-1b-it-Q8_0.gguf";
+      hash = "sha256-sgWEDF3O9VB44300RneGmnFP/UKkrkSMSNz7UuS7ENU=";
+    };
+    gemma-3-4b = fetchurl {
+      url = "https://huggingface.co/ggml-org/gemma-3-4b-it-GGUF/resolve/main/gemma-3-4b-it-Q4_K_M.gguf";
+      hash = "sha256-iC6NLbRNxVT7DqUHfLfkvEnnNCofDaV5AcCALqIaCGM=";
+    };
   };
 
+  # List of module names corresponding to derivations of example scripts in
+  # this directory.
+  modules = [
+    "conversation-basic"
+    "conversation-long"
+    "hello-curl"
+    "hello-python"
+    "high-temperature"
+    "long-input"
+    "ten-paragraphs"
+    "ten-paragraphs-logprobs"
+    "tool-calling"
+  ];
+
+  # Wrap a concrete example script with the necessary llama.cpp wrapper and
+  # model configuration to run it.
+  # Takes an acceleration type, model name, and module name as arguments and
+  # returns a derivation of the wrapped example script.
   writeExample =
-    module: acceleration:
+    {
+      acceleration,
+      model,
+      module,
+    }:
     callPackage ../src/write-llama-wrapper.nix (
       {
-        unwrapped = callPackage module { };
-        model = gemma-3-270m;
         acceleration = if acceleration == "cpu" then false else acceleration;
+        model = models.${model};
+        unwrapped = callPackage ./${module} { };
       }
       // lib.optionalAttrs (acceleration == "cuda") {
         # For our CUDA tests, we are using NVIDIA GPUs as old as the GeForce 900 series
@@ -35,27 +70,29 @@ let
       }
     );
 in
-{
-  cpu = {
-    conversation-basic = writeExample ./conversation-basic "cpu";
-    conversation-long = writeExample ./conversation-long "cpu";
-    hello-curl = writeExample ./hello-curl "cpu";
-    hello-python = writeExample ./hello-python "cpu";
-    high-temperature = writeExample ./high-temperature "cpu";
-    long-input = writeExample ./long-input "cpu";
-    ten-paragraphs = writeExample ./ten-paragraphs "cpu";
-    ten-paragraphs-logprobs = writeExample ./ten-paragraphs-logprobs "cpu";
-    tool-calling = writeExample ./tool-calling "cpu";
-  };
-  cuda = {
-    conversation-basic = writeExample ./conversation-basic "cuda";
-    conversation-long = writeExample ./conversation-long "cuda";
-    hello-curl = writeExample ./hello-curl "cuda";
-    hello-python = writeExample ./hello-python "cuda";
-    high-temperature = writeExample ./high-temperature "cuda";
-    long-input = writeExample ./long-input "cuda";
-    ten-paragraphs = writeExample ./ten-paragraphs "cuda";
-    ten-paragraphs-logprobs = writeExample ./ten-paragraphs-logprobs "cuda";
-    tool-calling = writeExample ./tool-calling "cuda";
-  };
-}
+# The resulting attribute set looks like this:
+# {
+#   cpu.gemma-3-270m.conversation-basic = <derivation of wrapped example script>;
+#   cpu.gemma-3-270m.conversation-long = <derivation of wrapped example script>;
+#   ...
+# }
+builtins.foldl' lib.recursiveUpdate { } (
+  lib.mapCartesianProduct
+    (
+      {
+        acceleration,
+        model,
+        module,
+      }:
+      {
+        ${acceleration}.${model}.${module} = writeExample {
+          inherit acceleration module model;
+        };
+      }
+    )
+    {
+      acceleration = accelerations;
+      model = lib.attrNames models; # `models` is an attribute set
+      module = modules;
+    }
+)
