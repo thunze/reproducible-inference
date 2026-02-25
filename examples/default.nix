@@ -18,7 +18,7 @@ let
     hash = "sha256-iC6NLbRNxVT7DqUHfLfkvEnnNCofDaV5AcCALqIaCGM=";
   };
 
-  writeTest =
+  writeExample =
     module: acceleration:
     callPackage ../src/write-llama-wrapper.nix (
       {
@@ -37,25 +37,25 @@ let
 in
 {
   cpu = {
-    conversation-basic = writeTest ./conversation-basic "cpu";
-    conversation-long = writeTest ./conversation-long "cpu";
-    hello-curl = writeTest ./hello-curl "cpu";
-    hello-python = writeTest ./hello-python "cpu";
-    high-temperature = writeTest ./high-temperature "cpu";
-    long-input = writeTest ./long-input "cpu";
-    ten-paragraphs = writeTest ./ten-paragraphs "cpu";
-    ten-paragraphs-logprobs = writeTest ./ten-paragraphs-logprobs "cpu";
-    tool-calling = writeTest ./tool-calling "cpu";
+    conversation-basic = writeExample ./conversation-basic "cpu";
+    conversation-long = writeExample ./conversation-long "cpu";
+    hello-curl = writeExample ./hello-curl "cpu";
+    hello-python = writeExample ./hello-python "cpu";
+    high-temperature = writeExample ./high-temperature "cpu";
+    long-input = writeExample ./long-input "cpu";
+    ten-paragraphs = writeExample ./ten-paragraphs "cpu";
+    ten-paragraphs-logprobs = writeExample ./ten-paragraphs-logprobs "cpu";
+    tool-calling = writeExample ./tool-calling "cpu";
   };
   cuda = {
-    conversation-basic = writeTest ./conversation-basic "cuda";
-    conversation-long = writeTest ./conversation-long "cuda";
-    hello-curl = writeTest ./hello-curl "cuda";
-    hello-python = writeTest ./hello-python "cuda";
-    high-temperature = writeTest ./high-temperature "cuda";
-    long-input = writeTest ./long-input "cuda";
-    ten-paragraphs = writeTest ./ten-paragraphs "cuda";
-    ten-paragraphs-logprobs = writeTest ./ten-paragraphs-logprobs "cuda";
-    tool-calling = writeTest ./tool-calling "cuda";
+    conversation-basic = writeExample ./conversation-basic "cuda";
+    conversation-long = writeExample ./conversation-long "cuda";
+    hello-curl = writeExample ./hello-curl "cuda";
+    hello-python = writeExample ./hello-python "cuda";
+    high-temperature = writeExample ./high-temperature "cuda";
+    long-input = writeExample ./long-input "cuda";
+    ten-paragraphs = writeExample ./ten-paragraphs "cuda";
+    ten-paragraphs-logprobs = writeExample ./ten-paragraphs-logprobs "cuda";
+    tool-calling = writeExample ./tool-calling "cuda";
   };
 }
