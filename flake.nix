@@ -26,7 +26,7 @@
       packages = forAllSystems (
         { pkgs }:
         {
-          llamaServerHook = pkgs.callPackage ./src/llama-server-hook.nix { };
+          writeLlamaWrapper = pkgs.callPackage ./src/write-llama-wrapper.nix { };
           examples = pkgs.callPackage ./examples { };
         }
       );
