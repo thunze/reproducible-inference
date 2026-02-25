@@ -2,6 +2,7 @@
   lib,
   callPackage,
   fetchurl,
+  ...
 }:
 
 let

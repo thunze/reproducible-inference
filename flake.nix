@@ -25,9 +25,12 @@
     {
       packages = forAllSystems (
         { pkgs }:
-        {
+        rec {
+          examples = import ./examples pkgs;
+          tests = pkgs.callPackage ./tests {
+            inherit examples;
+          };
           writeLlamaWrapper = pkgs.callPackage ./src/write-llama-wrapper.nix { };
-          examples = pkgs.callPackage ./examples { };
         }
       );
 
