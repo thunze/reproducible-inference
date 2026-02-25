@@ -106,7 +106,7 @@ writeShellApplication {
 
     # Wait for the server to start and be healthy, time out after 3 retries
     >&2 curl \
-      --retry 3 \
+      --retry 5 \
       --retry-all-errors \
       -o /dev/null \
       http://127.0.0.1:8080/health
