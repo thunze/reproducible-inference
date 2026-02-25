@@ -28,16 +28,19 @@ def dump_messages(messages):
 
 
 class ToolCallingAgent:
-    """Minimal implementation of a tool-calling agent.
+    """Minimal implementation of a tool-calling agent with one round of tool calls
+    per user query.
 
-    Not using any of LangChain's agent implementations here due to partial
-    incompatibility with llama.cpp's implementation of the OpenAI API.
+    Not using any of LangChain's agent implementations here because we need to limit
+    the number of times the LLM can call tools for small models. This is because
+    small models tend to get stuck in infinite loops of repeatedly calling the same
+    tool, which we want to avoid.
 
     Args:
-        llm: The language model to use for generating responses and deciding which
-            tools to call.
-        tools: The tools that the agent can use.
-        system_message: The system message to use for the agent's conversation.
+        llm: Language model to use for generating responses and deciding which tools
+            to call.
+        tools: List of tools the agent can use.
+        system_message: System message to use for the agent's conversation.
     """
 
     def __init__(self, llm, tools, system_message):
