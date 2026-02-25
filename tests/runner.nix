@@ -28,7 +28,7 @@ let
     replaceVarsWith {
       src = ./test_template.py;
       replacements = {
-        example_binary = lib.getBin exampleDerivation;
+        example_binary = lib.getExe exampleDerivation;
         expected_output_file = expectedOutputFile;
         example_stdout_logfile = "test_${name}_stdout.log";
         example_stderr_logfile = "test_${name}_stderr.log";
