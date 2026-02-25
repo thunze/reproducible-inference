@@ -5,7 +5,7 @@
 }:
 
 let
-  # Acceleration types to test with.
+  # Acceleration types to generate example derivations for.
   accelerations = [
     # Run purely on the CPU, with no GPU acceleration.
     "cpu"
@@ -14,8 +14,8 @@ let
     "cuda"
   ];
 
-  # List of large language models to test with. Each model evaluates to a
-  # model file in GGUF format.
+  # List of large language models to generate example derivations for.
+  # Each model evaluates to a model file in GGUF format.
   models = {
     gemma-3-270m = fetchurl {
       url = "https://huggingface.co/ggml-org/gemma-3-270m-it-GGUF/resolve/main/gemma-3-270m-it-Q8_0.gguf";
@@ -32,7 +32,7 @@ let
   };
 
   # List of module names corresponding to derivations of example scripts in
-  # this directory.
+  # this directory to generate examples for.
   modules = [
     "conversation-basic"
     "conversation-long"
