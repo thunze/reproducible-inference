@@ -30,6 +30,10 @@ let
       url = "https://huggingface.co/ggml-org/gemma-3-4b-it-GGUF/resolve/main/gemma-3-4b-it-Q4_K_M.gguf";
       hash = "sha256-iC6NLbRNxVT7DqUHfLfkvEnnNCofDaV5AcCALqIaCGM=";
     };
+    granite-4-350m = fetchurl {
+      url = "https://huggingface.co/unsloth/granite-4.0-350m-GGUF/resolve/main/granite-4.0-350m-Q4_0.gguf";
+      hash = "sha256-0Hn2yKm0JebHrKJa+9NNcgkZhCRr9kCbgAqPgcJX6h8=";
+    };
   };
 
   # List of module names corresponding to derivations of example scripts in
