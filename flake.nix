@@ -72,7 +72,7 @@
               # `ri-tests-all` or `ri-tests-cpu`.
               environment.shellAliases = lib.mapAttrs' (
                 key: runner: lib.nameValuePair "ri-tests-${key}" runner
-              ) self.packages.${config.nixpkgs.hostPlatform}.tests;
+              ) self.packages.${config.nixpkgs.system}.tests;
 
               # Faster squashfs compression, we don't care about file size
               isoImage.squashfsCompression = "gzip -Xcompression-level 1";
