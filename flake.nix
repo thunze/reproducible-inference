@@ -33,11 +33,19 @@
         }
       );
 
+      # NixOS configuration for a live system image with graphics drivers
+      # and all test runners pre-installed. This is used for testing on
+      # machines that don't have Nix installed.
       nixosConfigurations.liveSystem = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           (
-            { modulesPath, ... }:
+            {
+              lib,
+              config,
+              modulesPath,
+              ...
+            }:
             {
               imports = [
                 (modulesPath + "/installer/cd-dvd/installation-cd-graphical-gnome.nix")
@@ -49,6 +57,14 @@
               # kernel module doesn't support.
               hardware.nvidia.open = false;
               services.xserver.videoDrivers = [ "nvidia" ];
+
+              # Add shell aliases for all test runner binaries. We cannot just
+              # install them via `environment.systemPackages` because all
+              # test runner binaries have the same name and would therefore
+              # conflict with each other.
+              environment.shellAliases = lib.mapAttrs' (
+                key: runner: lib.nameValuePair "ri-tests-${key}" runner
+              ) self.packages.${config.nixpkgs.hostPlatform}.tests;
 
               # Faster squashfs compression, we don't care about file size
               isoImage.squashfsCompression = "gzip -Xcompression-level 1";
