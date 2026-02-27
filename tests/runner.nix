@@ -2,6 +2,7 @@
   lib,
   coreutils,
   fastfetch,
+  gnutar,
   python3,
   replaceVarsWith,
   symlinkJoin,
@@ -59,6 +60,7 @@ writeShellApplication {
   runtimeInputs = [
     coreutils
     fastfetch
+    gnutar
     (python3.withPackages (ps: with ps; [ pytest ]))
   ];
 
