@@ -1,0 +1,71 @@
+[
+  {
+    "role": "system",
+    "content": "You are a helpful assistant. Answer concisely."
+  },
+  {
+    "role": "user",
+    "content": "Hi there! What's the capital of France?"
+  },
+  {
+    "content": "The capital of France is Paris.",
+    "refusal": null,
+    "role": "assistant",
+    "annotations": null,
+    "audio": null,
+    "function_call": null,
+    "tool_calls": null
+  },
+  {
+    "role": "user",
+    "content": "Can you tell me a joke?"
+  },
+  {
+    "content": "Why don't we ever get along in France? Because one person is always trying to find the best place to be.",
+    "refusal": null,
+    "role": "assistant",
+    "annotations": null,
+    "audio": null,
+    "function_call": null,
+    "tool_calls": null
+  },
+  {
+    "role": "user",
+    "content": "What's the weather like today?"
+  },
+  {
+    "content": "It's a warm day in Paris.",
+    "refusal": null,
+    "role": "assistant",
+    "annotations": null,
+    "audio": null,
+    "function_call": null,
+    "tool_calls": null
+  },
+  {
+    "role": "user",
+    "content": "How do I bake a chocolate cake?"
+  },
+  {
+    "content": "You can't beat the chocolate.",
+    "refusal": null,
+    "role": "assistant",
+    "annotations": null,
+    "audio": null,
+    "function_call": null,
+    "tool_calls": null
+  },
+  {
+    "role": "user",
+    "content": "What's the tallest mountain in the world?"
+  },
+  {
+    "content": "The highest mountain in the world is Mount Everest.",
+    "refusal": null,
+    "role": "assistant",
+    "annotations": null,
+    "audio": null,
+    "function_call": null,
+    "tool_calls": null
+  }
+]

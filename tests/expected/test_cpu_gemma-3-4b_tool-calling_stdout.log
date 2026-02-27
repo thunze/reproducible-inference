@@ -1,0 +1,211 @@
+[
+  {
+    "content": "You are a helpful assistant. You can use tools to get the current time and weather information. Once you have the information, provide an answer to user.",
+    "additional_kwargs": {},
+    "response_metadata": {
+      "id": "",
+      "system_fingerprint": ""
+    },
+    "type": "system",
+    "name": null,
+    "id": ""
+  },
+  {
+    "content": "What time is it?",
+    "additional_kwargs": {},
+    "response_metadata": {
+      "id": "",
+      "system_fingerprint": ""
+    },
+    "type": "human",
+    "name": null,
+    "id": ""
+  },
+  {
+    "content": "",
+    "additional_kwargs": {
+      "refusal": null
+    },
+    "response_metadata": {
+      "token_usage": {
+        "completion_tokens": 31,
+        "prompt_tokens": 367,
+        "total_tokens": 398,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "model_provider": "openai",
+      "model_name": "bawrka883gy8qci1didsys7yv9h94v9s-gemma-3-4b-it-Q4_K_M.gguf",
+      "system_fingerprint": "",
+      "id": "",
+      "finish_reason": "tool_calls",
+      "logprobs": null
+    },
+    "type": "ai",
+    "name": null,
+    "id": "",
+    "tool_calls": [
+      {
+        "name": "get_datetime",
+        "args": {},
+        "id": "0",
+        "type": "tool_call"
+      }
+    ],
+    "invalid_tool_calls": [],
+    "usage_metadata": {
+      "input_tokens": 367,
+      "output_tokens": 31,
+      "total_tokens": 398,
+      "input_token_details": {},
+      "output_token_details": {}
+    }
+  },
+  {
+    "content": "2026-01-27T14:32:33.990923",
+    "additional_kwargs": {},
+    "response_metadata": {
+      "id": "",
+      "system_fingerprint": ""
+    },
+    "type": "tool",
+    "name": "get_datetime",
+    "id": "",
+    "tool_call_id": "0",
+    "artifact": null,
+    "status": "success"
+  },
+  {
+    "content": "It is currently 2:32 PM on January 27, 2026.",
+    "additional_kwargs": {
+      "refusal": null
+    },
+    "response_metadata": {
+      "token_usage": {
+        "completion_tokens": 22,
+        "prompt_tokens": 165,
+        "total_tokens": 187,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "model_provider": "openai",
+      "model_name": "bawrka883gy8qci1didsys7yv9h94v9s-gemma-3-4b-it-Q4_K_M.gguf",
+      "system_fingerprint": "",
+      "id": "",
+      "finish_reason": "stop",
+      "logprobs": null
+    },
+    "type": "ai",
+    "name": null,
+    "id": "",
+    "tool_calls": [],
+    "invalid_tool_calls": [],
+    "usage_metadata": {
+      "input_tokens": 165,
+      "output_tokens": 22,
+      "total_tokens": 187,
+      "input_token_details": {},
+      "output_token_details": {}
+    }
+  },
+  {
+    "content": "What's the weather in San Francisco?",
+    "additional_kwargs": {},
+    "response_metadata": {
+      "id": "",
+      "system_fingerprint": ""
+    },
+    "type": "human",
+    "name": null,
+    "id": ""
+  },
+  {
+    "content": "",
+    "additional_kwargs": {
+      "refusal": null
+    },
+    "response_metadata": {
+      "token_usage": {
+        "completion_tokens": 43,
+        "prompt_tokens": 526,
+        "total_tokens": 569,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "model_provider": "openai",
+      "model_name": "bawrka883gy8qci1didsys7yv9h94v9s-gemma-3-4b-it-Q4_K_M.gguf",
+      "system_fingerprint": "",
+      "id": "",
+      "finish_reason": "tool_calls",
+      "logprobs": null
+    },
+    "type": "ai",
+    "name": null,
+    "id": "",
+    "tool_calls": [
+      {
+        "name": "get_weather",
+        "args": {
+          "location": "San Francisco"
+        },
+        "id": "1",
+        "type": "tool_call"
+      }
+    ],
+    "invalid_tool_calls": [],
+    "usage_metadata": {
+      "input_tokens": 526,
+      "output_tokens": 43,
+      "total_tokens": 569,
+      "input_token_details": {},
+      "output_token_details": {}
+    }
+  },
+  {
+    "content": "Sunny, 72F",
+    "additional_kwargs": {},
+    "response_metadata": {
+      "id": "",
+      "system_fingerprint": ""
+    },
+    "type": "tool",
+    "name": "get_weather",
+    "id": "",
+    "tool_call_id": "1",
+    "artifact": null,
+    "status": "success"
+  },
+  {
+    "content": "The weather in San Francisco is currently sunny with a temperature of 72 degrees Fahrenheit.",
+    "additional_kwargs": {
+      "refusal": null
+    },
+    "response_metadata": {
+      "token_usage": {
+        "completion_tokens": 19,
+        "prompt_tokens": 316,
+        "total_tokens": 335,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "model_provider": "openai",
+      "model_name": "bawrka883gy8qci1didsys7yv9h94v9s-gemma-3-4b-it-Q4_K_M.gguf",
+      "system_fingerprint": "",
+      "id": "",
+      "finish_reason": "stop",
+      "logprobs": null
+    },
+    "type": "ai",
+    "name": null,
+    "id": "",
+    "tool_calls": [],
+    "invalid_tool_calls": [],
+    "usage_metadata": {
+      "input_tokens": 316,
+      "output_tokens": 19,
+      "total_tokens": 335,
+      "input_token_details": {},
+      "output_token_details": {}
+    }
+  }
+]
