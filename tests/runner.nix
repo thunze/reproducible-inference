@@ -40,7 +40,7 @@ let
         example_stderr_logfile = "test_${name}_stderr.log";
       };
       name = "test_${name}.py";
-      dir = "tests";
+      dir = "/";  # Add to root of Nix store path
     };
 
   # Link all generated test files into a single directory that can be
