@@ -6,7 +6,7 @@
   #
   # {
   #   cpu.gemma-3-270m.conversation-basic = <derivation of wrapped example script>;
-  #   cpu.gemma-3-270m.conversation-long = <derivation of wrapped example script>;
+  #   cpu.gemma-3-270m.hello-curl = <derivation of wrapped example script>;
   #   ...
   # }
   examples,

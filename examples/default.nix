@@ -40,7 +40,6 @@ let
   # this directory to generate examples for.
   modules = [
     "conversation-basic"
-    "conversation-long"
     "hello-curl"
     "hello-python"
     "high-temperature"
@@ -79,7 +78,7 @@ in
 #
 # {
 #   cpu.gemma-3-270m.conversation-basic = <derivation of wrapped example script>;
-#   cpu.gemma-3-270m.conversation-long = <derivation of wrapped example script>;
+#   cpu.gemma-3-270m.hello-curl = <derivation of wrapped example script>;
 #   ...
 # }
 builtins.foldl' lib.recursiveUpdate { } (
