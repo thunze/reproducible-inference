@@ -2,7 +2,7 @@
   lib,
   callPackage,
 
-  # List of examples in the format exported by `../examples/default.nix`, e.g.:
+  # List of all examples in the format exported by `../examples/default.nix`, i.e.:
   #
   # {
   #   cpu.gemma-3-270m.conversation-basic = <derivation of wrapped example script>;

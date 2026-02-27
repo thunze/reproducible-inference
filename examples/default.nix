@@ -76,6 +76,7 @@ let
     );
 in
 # The resulting attribute set looks like this:
+#
 # {
 #   cpu.gemma-3-270m.conversation-basic = <derivation of wrapped example script>;
 #   cpu.gemma-3-270m.conversation-long = <derivation of wrapped example script>;
