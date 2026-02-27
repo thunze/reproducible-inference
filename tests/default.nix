@@ -18,10 +18,10 @@ let
   # We stop recursing through `examples` when we encounter a derivation, which
   # should be the wrapped example script for a test case.
   testCases = lib.mapAttrsToListRecursiveCond (path: attrset: !(lib.isDerivation attrset)) (
-    path: exampleDerivation: {
+    path: exampleDerivation: rec {
       name = lib.concatStringsSep "_" path;
       inherit exampleDerivation;
-      expectedOutputFile = ./expected/test_${lib.concatStringsSep "_" path}_stdout.log;
+      expectedOutputFile = ./expected/test_${name}_stdout.log;
     }) examples;
 in
 callPackage ./runner.nix {
