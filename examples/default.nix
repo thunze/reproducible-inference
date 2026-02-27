@@ -39,7 +39,7 @@ let
   # List of module names corresponding to derivations of example scripts in
   # this directory to generate examples for.
   modules = [
-    "conversation-basic"
+    "conversation"
     "hello-curl"
     "hello-python"
     "high-temperature"
@@ -77,7 +77,7 @@ in
 # The resulting attribute set looks like this:
 #
 # {
-#   cpu.gemma-3-270m.conversation-basic = <derivation of wrapped example script>;
+#   cpu.gemma-3-270m.conversation = <derivation of wrapped example script>;
 #   cpu.gemma-3-270m.hello-curl = <derivation of wrapped example script>;
 #   ...
 # }

@@ -4,7 +4,7 @@
 }:
 
 stdenv.mkDerivation {
-  name = "reproducible-inference-test-conversation-basic";
+  name = "reproducible-inference-test-conversation";
 
   dontUnpack = true;
 
@@ -14,8 +14,8 @@ stdenv.mkDerivation {
 
   installPhase = ''
     mkdir -p $out/bin
-    cp -a ${./main.py} $out/bin/conversation_basic
+    cp -a ${./main.py} $out/bin/conversation
   '';
 
-  meta.mainProgram = "conversation_basic";
+  meta.mainProgram = "conversation";
 }

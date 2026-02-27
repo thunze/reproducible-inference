@@ -5,7 +5,7 @@
   # List of all examples in the format exported by `../examples/default.nix`, i.e.:
   #
   # {
-  #   cpu.gemma-3-270m.conversation-basic = <derivation of wrapped example script>;
+  #   cpu.gemma-3-270m.conversation = <derivation of wrapped example script>;
   #   cpu.gemma-3-270m.hello-curl = <derivation of wrapped example script>;
   #   ...
   # }
