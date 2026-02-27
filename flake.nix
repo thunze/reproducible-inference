@@ -27,9 +27,7 @@
         { pkgs }:
         rec {
           examples = import ./examples pkgs;
-          tests = pkgs.callPackage ./tests {
-            inherit examples;
-          };
+          tests = import ./tests (pkgs // { inherit examples; });
           writeLlamaWrapper = pkgs.callPackage ./src/write-llama-wrapper.nix { };
           liveSystemImage = self.nixosConfigurations.liveSystem.config.system.build.isoImage;
         }
