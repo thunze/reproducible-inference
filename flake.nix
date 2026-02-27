@@ -6,6 +6,9 @@
   outputs =
     { self, nixpkgs, ... }:
     let
+      # We only test on `x86_64-linux`, but with `supportedSystems`
+      # we allow building the packages on other platforms as well,
+      # in case anyone wants to try that.
       supportedSystems = [
         "x86_64-linux"
         "aarch64-linux"
@@ -23,6 +26,9 @@
         );
     in
     {
+      # Packages exported by this flake.
+      # Can be built using `nix build .#<package>`.
+      # Can be run using `nix run .#<package>`.
       packages = forAllSystems (
         { pkgs }:
         rec {
@@ -62,6 +68,8 @@
               # install them via `environment.systemPackages` because all
               # test runner binaries have the same name and would therefore
               # conflict with each other.
+              # The resulting aliases look like `ri-tests-<runner>`, e.g.,
+              # `ri-tests-all` or `ri-tests-cpu`.
               environment.shellAliases = lib.mapAttrs' (
                 key: runner: lib.nameValuePair "ri-tests-${key}" runner
               ) self.packages.${config.nixpkgs.hostPlatform}.tests;
@@ -73,6 +81,7 @@
         ];
       };
 
+      # Development shell, used only for development.
       devShells = forAllSystems (
         { pkgs }:
         {

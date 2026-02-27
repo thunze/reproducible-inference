@@ -19,6 +19,12 @@
 }:
 
 let
+  # Generate a pytest test file from the test template by replacing variables
+  # with the appropriate values for a given test case.
+  # `name` is the name of the test case, `exampleDerivation` is the derivation
+  # of the wrapped example script, and `expectedOutputFile` is the path to the
+  # file containing the data expected to be written to stdout by the example
+  # script.
   generateTestFile =
     {
       name,
@@ -37,11 +43,16 @@ let
       dir = "tests";
     };
 
+  # Link all generated test files into a single directory that can be
+  # passed to pytest.
   testDir = symlinkJoin {
     name = "reproducible-inference-tests";
     paths = builtins.map generateTestFile testCases;
   };
 in
+# Test runner derivation. Running the resulting binary will execute all
+# tests and log the results, as well as machine information, to a temporary
+# output directory.
 writeShellApplication {
   name = "reproducible-inference-test-runner";
 

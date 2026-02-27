@@ -14,7 +14,7 @@ writeShellApplication {
 
   # Disabling top-p and min-p sampling to isolate the effect of high temperature.
   # 
-  # We are not using the OpenAI Python client here because OpenAI-compatible APIs
+  # We're not using the OpenAI Python client here because OpenAI-compatible APIs
   # don't officially support the `min_p` parameter.
   text = ''
     curl http://127.0.0.1:8080/v1/chat/completions \
