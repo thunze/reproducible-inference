@@ -1,0 +1,24 @@
+name: Tests
+on: workflow_dispatch
+
+jobs:
+  cpu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
+
+      - name: Run tests
+        id: tests
+        run: |
+          echo -n "tarball_path=" >> $GITHUB_OUTPUT
+          nix run -Lv .#tests.cpu >> $GITHUB_OUTPUT
+    
+      - name: Upload test results
+        uses: actions/upload-artifact@v7
+        with:
+          path: ${{ steps.tests.outputs.tarball_path }}
+          archive: false
