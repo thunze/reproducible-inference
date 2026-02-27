@@ -13,7 +13,7 @@ writeShellApplication {
   ];
 
   # Disabling top-p and min-p sampling to isolate the effect of high temperature.
-  # 
+  #
   # We're not using the OpenAI Python client here because OpenAI-compatible APIs
   # don't officially support the `min_p` parameter.
   text = ''

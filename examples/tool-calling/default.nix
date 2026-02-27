@@ -9,10 +9,12 @@ stdenv.mkDerivation {
   dontUnpack = true;
 
   buildInputs = [
-    (python3.withPackages (ps: with ps; [
-      langchain
-      langchain-openai
-    ]))
+    (python3.withPackages (
+      ps: with ps; [
+        langchain
+        langchain-openai
+      ]
+    ))
   ];
 
   installPhase = ''
