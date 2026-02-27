@@ -23,7 +23,7 @@ writeShellApplication {
       -H "Content-Type: application/json" \
       -d '{
         "messages": [
-          {"role": "user", "content": "test"}
+          {"role": "user", "content": "Hello, world!"}
         ],
         "temperature": 10,
         "top_p": 1.0,
