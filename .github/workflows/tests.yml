@@ -18,6 +18,7 @@ jobs:
           nix run -Lv .#tests.cpu >> $GITHUB_OUTPUT
     
       - name: Upload test results
+        if: success() || failure()
         uses: actions/upload-artifact@v7
         with:
           path: ${{ steps.tests.outputs.tarball }}
