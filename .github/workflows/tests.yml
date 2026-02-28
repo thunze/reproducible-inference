@@ -14,11 +14,11 @@ jobs:
       - name: Run tests
         id: tests
         run: |
-          echo -n "tarball_path=" >> $GITHUB_OUTPUT
+          echo -n "tarball=" >> $GITHUB_OUTPUT
           nix run -Lv .#tests.cpu >> $GITHUB_OUTPUT
     
       - name: Upload test results
         uses: actions/upload-artifact@v7
         with:
-          path: ${{ steps.tests.outputs.tarball_path }}
+          path: ${{ steps.tests.outputs.tarball }}
           archive: false
