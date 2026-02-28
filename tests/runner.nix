@@ -67,16 +67,15 @@ writeShellApplication {
   text = ''
     REPRODUCIBLE_INFERENCE_TEST_OUTPUT_DIR=$(mktemp -d)
     export REPRODUCIBLE_INFERENCE_TEST_OUTPUT_DIR
+    out=$REPRODUCIBLE_INFERENCE_TEST_OUTPUT_DIR
 
     # Log machine information for debugging purposes
-    fastfetch --logo none --pipe > "$REPRODUCIBLE_INFERENCE_TEST_OUTPUT_DIR/fastfetch.log"
-    fastfetch --json >> "$REPRODUCIBLE_INFERENCE_TEST_OUTPUT_DIR/fastfetch.json"
+    fastfetch --logo none --pipe > "$out/fastfetch.log"
+    fastfetch --json >> "$out/fastfetch.json"
 
     # Run pytest with the test directory as an argument, and tee stdout and
     # stderr to `pytest.log` in the output directory.
-    pytest ${testDir} -svv 2>&1 \
-      | tee "$REPRODUCIBLE_INFERENCE_TEST_OUTPUT_DIR/pytest.log"
-
+    pytest ${testDir} -svv 2>&1 | tee "$out/pytest.log"
     pytestExitCode=$?
 
     # Create a tarball from the output directory for easy retrieval after the test run
