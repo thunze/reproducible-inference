@@ -81,8 +81,12 @@ writeShellApplication {
     # stderr to `pytest.log` in the output directory. Also disable pytest's
     # cache provider plugin to avoid warnings due to the test directory being
     # read-only (Nix store path).
+    # Disable `set -e` for this command to ensure that the test runner continues
+    # executing and creates the tarball even if some tests fail.
+    set +e
     pytest ${testDir} -p no:cacheprovider -svv 2>&1 | tee "$out/pytest.log" >&2
     pytestExitCode=''${PIPESTATUS[0]}
+    set -e
 
     # Create a tarball from the output directory for easy retrieval after the test run
     >&2 touch "$tarball"
