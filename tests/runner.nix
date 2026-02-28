@@ -71,7 +71,7 @@ writeShellApplication {
 
     # Log machine information for debugging purposes
     fastfetch --logo none --pipe > "$out/fastfetch.log"
-    fastfetch --json >> "$out/fastfetch.json"
+    fastfetch --json > "$out/fastfetch.json"
 
     # Run pytest with the test directory as an argument, and tee stdout and
     # stderr to `pytest.log` in the output directory.
