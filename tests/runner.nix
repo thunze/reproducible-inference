@@ -68,6 +68,7 @@ writeShellApplication {
     REPRODUCIBLE_INFERENCE_TEST_OUTPUT_DIR=$(mktemp -d)
     export REPRODUCIBLE_INFERENCE_TEST_OUTPUT_DIR
     out=$REPRODUCIBLE_INFERENCE_TEST_OUTPUT_DIR
+    tarball="$out/reproducible_inference_test_$(date "+%Y-%m-%d_%H-%M-%S").tar.gz"
 
     # Log machine information for debugging purposes
     fastfetch --logo none --pipe > "$out/fastfetch.log"
@@ -81,9 +82,9 @@ writeShellApplication {
     pytestExitCode=$?
 
     # Create a tarball from the output directory for easy retrieval after the test run
-    tarballPath="/tmp/reproducible_inference_test_$(date "+%Y-%m-%d_%H-%M-%S").tar.gz"
-    tar czf "$tarballPath" -C "$REPRODUCIBLE_INFERENCE_TEST_OUTPUT_DIR" .
-    echo "Test output tarball created at: $tarballPath"
+    tar -czvf "$tarball" -C "$out" .
+    echo "Test output tarball created at: $tarball"
+    echo "$tarball"
 
     exit $pytestExitCode
   '';
