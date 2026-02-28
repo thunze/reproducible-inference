@@ -74,8 +74,10 @@ writeShellApplication {
     fastfetch --json > "$out/fastfetch.json"
 
     # Run pytest with the test directory as an argument, and tee stdout and
-    # stderr to `pytest.log` in the output directory.
-    pytest ${testDir} -svv 2>&1 | tee "$out/pytest.log"
+    # stderr to `pytest.log` in the output directory. Also disable pytest's
+    # cache provider plugin to avoid warnings due to the test directory being
+    # read-only (Nix store path).
+    pytest ${testDir} -p no:cacheprovider -svv 2>&1 | tee "$out/pytest.log"
     pytestExitCode=$?
 
     # Create a tarball from the output directory for easy retrieval after the test run
