@@ -64,6 +64,9 @@ writeShellApplication {
     (python3.withPackages (ps: with ps; [ pytest ]))
   ];
 
+  # Using `>&2` to redirect all output except the final tarball path to
+  # stderr so that stdout can be easily parsed by consumers to retrieve
+  # the tarball path.
   text = ''
     REPRODUCIBLE_INFERENCE_TEST_OUTPUT_DIR=$(mktemp -d)
     export REPRODUCIBLE_INFERENCE_TEST_OUTPUT_DIR
@@ -78,12 +81,12 @@ writeShellApplication {
     # stderr to `pytest.log` in the output directory. Also disable pytest's
     # cache provider plugin to avoid warnings due to the test directory being
     # read-only (Nix store path).
-    pytest ${testDir} -p no:cacheprovider -svv 2>&1 | tee "$out/pytest.log"
+    pytest ${testDir} -p no:cacheprovider -svv 2>&1 | tee "$out/pytest.log" >&2
     pytestExitCode=$?
 
     # Create a tarball from the output directory for easy retrieval after the test run
-    tar -czvf "$tarball" -C "$out" .
-    echo "Test output tarball created at: $tarball"
+    >&2 tar -czvf "$tarball" -C "$out" .
+    >&2 echo "Test output tarball created at: $tarball"
     echo "$tarball"
 
     exit $pytestExitCode
