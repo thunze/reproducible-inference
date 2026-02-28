@@ -85,7 +85,8 @@ writeShellApplication {
     pytestExitCode=''${PIPESTATUS[0]}
 
     # Create a tarball from the output directory for easy retrieval after the test run
-    >&2 tar -czvf "$tarball" -C "$out" .
+    >&2 touch "$tarball"
+    >&2 tar --exclude "$(basename "$tarball")" -czvf "$tarball" -C "$out" .
     >&2 echo "Test output tarball created at: $tarball"
     echo "$tarball"
 
