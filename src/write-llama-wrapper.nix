@@ -45,7 +45,12 @@ let
   # Configure llama-cpp package for `acceleration`
   llamaCppPkg =
     if !someAcceleration then
-      llama-cpp
+      # BLAS can introduce nondeterminism in llama.cpp's outputs for prompts
+      # longer than 32 tokens.
+      # https://github.com/ggml-org/llama.cpp/blob/b7704/docs/build.md#blas-build
+      (llama-cpp.override {
+        blasSupport = false;
+      })
     else
       {
         cuda = llama-cpp.override {

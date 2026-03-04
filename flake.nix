@@ -89,7 +89,11 @@
             packages = with pkgs; [
               bash
               nixfmt
-              llama-cpp
+
+              # Match default non-accelerated llama.cpp
+              (llama-cpp.override {
+                blasSupport = false;
+              })
             ];
           };
         }
