@@ -176,15 +176,15 @@
     "status": "success"
   },
   {
-    "content": "Okay, I'm ready. Please provide the weather information.",
+    "content": "Okay, I'm ready.\n",
     "additional_kwargs": {
       "refusal": null
     },
     "response_metadata": {
       "token_usage": {
-        "completion_tokens": 14,
+        "completion_tokens": 9,
         "prompt_tokens": 300,
-        "total_tokens": 314,
+        "total_tokens": 309,
         "completion_tokens_details": null,
         "prompt_tokens_details": null
       },
@@ -202,8 +202,8 @@
     "invalid_tool_calls": [],
     "usage_metadata": {
       "input_tokens": 300,
-      "output_tokens": 14,
-      "total_tokens": 314,
+      "output_tokens": 9,
+      "total_tokens": 309,
       "input_token_details": {},
       "output_token_details": {}
     }
