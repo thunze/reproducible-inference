@@ -30,6 +30,18 @@ let
       url = "https://huggingface.co/ggml-org/gemma-3-4b-it-GGUF/resolve/main/gemma-3-4b-it-Q4_K_M.gguf";
       hash = "sha256-iC6NLbRNxVT7DqUHfLfkvEnnNCofDaV5AcCALqIaCGM=";
     };
+    qwen-3-0-6b = fetchurl {
+      url = "https://huggingface.co/ggml-org/Qwen3-0.6B-GGUF/resolve/main/Qwen3-0.6B-Q8_0.gguf";
+      hash = "sha256-hMDb5gZSbVkHJR2I6oi0FFf0bORW6aMz1dK2JFqVyv4=";
+    };
+    qwen-3-1-7b = fetchurl {
+      url = "https://huggingface.co/ggml-org/Qwen3-1.7B-GGUF/resolve/main/Qwen3-1.7B-Q8_0.gguf";
+      hash = "sha256-mGB4Dzofqx+PkJobVJ6j5iwi0ZqxpJKzoQJrOMW9PsM=";
+    };
+    qwen-3-4b = fetchurl {
+      url = "https://huggingface.co/ggml-org/Qwen3-4B-GGUF/resolve/main/Qwen3-4B-Q4_K_M.gguf";
+      hash = "sha256-qye5v6N1oXjWy6SPOtiSuUt3OWWdzHqugFjOD/7Wsyg=";
+    };
   };
 
   # List of module names corresponding to derivations of example scripts in
