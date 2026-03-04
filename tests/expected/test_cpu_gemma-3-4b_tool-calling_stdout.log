@@ -176,15 +176,15 @@
     "status": "success"
   },
   {
-    "content": "The weather in San Francisco is currently sunny with a temperature of 72 degrees Fahrenheit.",
+    "content": "The weather in San Francisco is currently sunny and 72 degrees Fahrenheit.",
     "additional_kwargs": {
       "refusal": null
     },
     "response_metadata": {
       "token_usage": {
-        "completion_tokens": 19,
+        "completion_tokens": 16,
         "prompt_tokens": 316,
-        "total_tokens": 335,
+        "total_tokens": 332,
         "completion_tokens_details": null,
         "prompt_tokens_details": null
       },
@@ -202,8 +202,8 @@
     "invalid_tool_calls": [],
     "usage_metadata": {
       "input_tokens": 316,
-      "output_tokens": 19,
-      "total_tokens": 335,
+      "output_tokens": 16,
+      "total_tokens": 332,
       "input_token_details": {},
       "output_token_details": {}
     }

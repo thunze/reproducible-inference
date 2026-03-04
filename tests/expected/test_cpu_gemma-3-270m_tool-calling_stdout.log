@@ -126,9 +126,9 @@
     },
     "response_metadata": {
       "token_usage": {
-        "completion_tokens": 44,
+        "completion_tokens": 43,
         "prompt_tokens": 510,
-        "total_tokens": 554,
+        "total_tokens": 553,
         "completion_tokens_details": null,
         "prompt_tokens_details": null
       },
@@ -155,8 +155,8 @@
     "invalid_tool_calls": [],
     "usage_metadata": {
       "input_tokens": 510,
-      "output_tokens": 44,
-      "total_tokens": 554,
+      "output_tokens": 43,
+      "total_tokens": 553,
       "input_token_details": {},
       "output_token_details": {}
     }
