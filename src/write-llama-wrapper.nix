@@ -100,6 +100,9 @@ writeShellApplication {
       --seed ${builtins.toString seed} \
       --gpu-layers ${builtins.toString gpuLayers} \
       --ctx-size 0 \
+      --batch-size 512 \
+      --ubatch-size 512 \
+      --no-host \
       --no-warmup &
 
     llama_server_pid=$!
