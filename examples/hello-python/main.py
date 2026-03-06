@@ -11,6 +11,7 @@ response = client.chat.completions.create(
             "content": "Hello, world!",
         },
     ],
+    extra_body={"chat_template_kwargs": {"enable_thinking": False}},
     model="",
 )
 

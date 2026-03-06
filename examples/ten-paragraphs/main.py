@@ -11,6 +11,7 @@ response = client.chat.completions.create(
             "content": "Please write 10 paragraphs about apples.",
         },
     ],
+    extra_body={"chat_template_kwargs": {"enable_thinking": False}},
     model="",
 )
 

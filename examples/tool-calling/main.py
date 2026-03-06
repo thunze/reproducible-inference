@@ -105,7 +105,11 @@ def get_weather(location: str) -> str:
 
 
 def main():
-    llm = ChatOpenAI(base_url="http://localhost:8080/v1", api_key="")
+    llm = ChatOpenAI(
+        base_url="http://localhost:8080/v1",
+        api_key="",
+        extra_body={"chat_template_kwargs": {"enable_thinking": False}},
+    )
     system_message = (
         "You are a helpful assistant. You can use tools to get the current time and "
         "weather information. Once you have the information, provide an answer to "

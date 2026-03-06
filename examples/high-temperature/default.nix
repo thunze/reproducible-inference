@@ -25,6 +25,7 @@ writeShellApplication {
         "messages": [
           {"role": "user", "content": "Hello, world!"}
         ],
+        "chat_template_kwargs": {"enable_thinking": false},
         "temperature": 10,
         "top_p": 1.0,
         "min_p": 0.0,

@@ -18,7 +18,8 @@ writeShellApplication {
       -d '{
         "messages": [
           {"role": "user", "content": "Hello, world!"}
-        ]
+        ],
+        "chat_template_kwargs": {"enable_thinking": false}
       }' \
       | jq -r '.choices.[0].message.content'
   '';

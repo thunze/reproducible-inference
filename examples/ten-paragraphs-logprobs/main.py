@@ -13,6 +13,7 @@ response = client.chat.completions.create(
         },
     ],
     logprobs=5,
+    extra_body={"chat_template_kwargs": {"enable_thinking": False}},
     model="",
 )
 

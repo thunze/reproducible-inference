@@ -19,7 +19,11 @@ messages = [{"role": "system", "content": SYSTEM_PROMPT}]
 
 for user_prompt in USER_PROMPTS:
     messages.append({"role": "user", "content": user_prompt})
-    response = client.chat.completions.create(messages=messages, model="")
+    response = client.chat.completions.create(
+        messages=messages,
+        extra_body={"chat_template_kwargs": {"enable_thinking": False}},
+        model="",
+    )
     messages.append(response.choices[0].message.model_dump())
 
 print(json.dumps(messages, indent=2))
