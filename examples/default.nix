@@ -52,6 +52,7 @@ let
     "hello-python"
     "high-temperature"
     "long-input"
+    "reasoning"
     "ten-paragraphs"
     "ten-paragraphs-logprobs"
     "tool-calling"
