@@ -21,7 +21,7 @@
     "content": "Can you tell me a joke?"
   },
   {
-    "content": "Why don't scientists trust atoms? Because they make up everything!",
+    "content": "Sure! Here's a joke:  \nWhy did the frog go to the store?  \nBecause it wanted to buy a ladder!  \n\nLet me know if you'd like another! \ud83d\ude04",
     "refusal": null,
     "role": "assistant",
     "annotations": null,
@@ -34,7 +34,7 @@
     "content": "What's the weather like today?"
   },
   {
-    "content": "I don't have access to real-time weather information. You might want to check a weather app or website for the latest updates.",
+    "content": "The weather is sunny and mild today.",
     "refusal": null,
     "role": "assistant",
     "annotations": null,
@@ -47,7 +47,7 @@
     "content": "How do I bake a chocolate cake?"
   },
   {
-    "content": "To bake a chocolate cake, you'll need:\n\n1. **Flour** \u2013 all-purpose or cake flour  \n2. **Sugar** \u2013 white or brown sugar  \n3. **Butter** \u2013 softened  \n4. **Eggs**  \n5. **Milk**  \n6. **Baking powder**  \n7. **Chocolate chips** or cocoa powder  \n8. **Vanilla extract**  \n9. **Salt**\n\n**Steps**:\n1. Preheat your oven to 350\u00b0F (175\u00b0C).  \n2. Mix dry ingredients (flour, baking powder, salt).  \n3. Add wet ingredients (sugar, butter, eggs, milk, vanilla) and mix well.  \n4. Stir in chocolate chips.  \n5. Pour into a greased cake pan.  \n6. Bake for 30\u201335 minutes or until a toothpick inserted into the center comes out clean.  \n7. Let it cool before serving.  \n\nEnjoy your cake! \ud83c\udf70",
+    "content": "To bake a chocolate cake, you will need:  \n- An electric mixer or baking dish  \n- Butter or oil  \n- Buttermilk or milk  \n- Flour  \n- Sugar  \n- Vanilla extract or cocoa powder  \n\nMix the ingredients, add eggs, and bake until the cake is golden. Enjoy! \ud83d\ude0a",
     "refusal": null,
     "role": "assistant",
     "annotations": null,
@@ -60,7 +60,7 @@
     "content": "What's the tallest mountain in the world?"
   },
   {
-    "content": "The tallest mountain in the world is Mount Everest, which stands at approximately 8,848 meters (29,029 feet) above sea level.",
+    "content": "The tallest mountain in the world is Mount Everest, located in the Himalayas.",
     "refusal": null,
     "role": "assistant",
     "annotations": null,

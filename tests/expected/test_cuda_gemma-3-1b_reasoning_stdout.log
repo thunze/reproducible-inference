@@ -1,0 +1,15 @@
+[
+  {
+    "role": "user",
+    "content": "I was born in 1990. How old am I in 2024?"
+  },
+  {
+    "content": "Okay, let's calculate that!\n\nYou were born in 1990.\n\n2024 - 1990 = 34 years old.\n\nSo, you are 34 years old.",
+    "refusal": null,
+    "role": "assistant",
+    "annotations": null,
+    "audio": null,
+    "function_call": null,
+    "tool_calls": null
+  }
+]

@@ -76,15 +76,15 @@
     "status": "success"
   },
   {
-    "content": "The current time is January 27, 2026, at 14:32:33.",
+    "content": "The current date and time is January 27, 2026, at 14:32:33.",
     "additional_kwargs": {
       "refusal": null
     },
     "response_metadata": {
       "token_usage": {
-        "completion_tokens": 27,
+        "completion_tokens": 29,
         "prompt_tokens": 108,
-        "total_tokens": 135,
+        "total_tokens": 137,
         "completion_tokens_details": null,
         "prompt_tokens_details": null
       },
@@ -102,8 +102,8 @@
     "invalid_tool_calls": [],
     "usage_metadata": {
       "input_tokens": 108,
-      "output_tokens": 27,
-      "total_tokens": 135,
+      "output_tokens": 29,
+      "total_tokens": 137,
       "input_token_details": {},
       "output_token_details": {}
     }
@@ -127,8 +127,8 @@
     "response_metadata": {
       "token_usage": {
         "completion_tokens": 21,
-        "prompt_tokens": 342,
-        "total_tokens": 363,
+        "prompt_tokens": 344,
+        "total_tokens": 365,
         "completion_tokens_details": null,
         "prompt_tokens_details": null
       },
@@ -154,9 +154,9 @@
     ],
     "invalid_tool_calls": [],
     "usage_metadata": {
-      "input_tokens": 342,
+      "input_tokens": 344,
       "output_tokens": 21,
-      "total_tokens": 363,
+      "total_tokens": 365,
       "input_token_details": {},
       "output_token_details": {}
     }
@@ -183,8 +183,8 @@
     "response_metadata": {
       "token_usage": {
         "completion_tokens": 17,
-        "prompt_tokens": 193,
-        "total_tokens": 210,
+        "prompt_tokens": 195,
+        "total_tokens": 212,
         "completion_tokens_details": null,
         "prompt_tokens_details": null
       },
@@ -201,9 +201,9 @@
     "tool_calls": [],
     "invalid_tool_calls": [],
     "usage_metadata": {
-      "input_tokens": 193,
+      "input_tokens": 195,
       "output_tokens": 17,
-      "total_tokens": 210,
+      "total_tokens": 212,
       "input_token_details": {},
       "output_token_details": {}
     }

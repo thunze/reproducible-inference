@@ -34,7 +34,7 @@
     "content": "What's the weather like today?"
   },
   {
-    "content": "I don't have access to real-time weather information. You might want to check a weather app or website for the latest updates.",
+    "content": "I can't check the weather. Let me know if you'd like a weather forecast!",
     "refusal": null,
     "role": "assistant",
     "annotations": null,
@@ -47,7 +47,7 @@
     "content": "How do I bake a chocolate cake?"
   },
   {
-    "content": "To bake a chocolate cake, you'll need:\n\n1. **Flour** \u2013 all-purpose or cake flour  \n2. **Sugar** \u2013 white or brown sugar  \n3. **Butter** \u2013 softened  \n4. **Eggs**  \n5. **Milk**  \n6. **Baking powder**  \n7. **Chocolate chips** or cocoa powder  \n8. **Vanilla extract**  \n9. **Salt**\n\n**Steps**:\n1. Preheat your oven to 350\u00b0F (175\u00b0C).  \n2. Mix dry ingredients (flour, baking powder, salt).  \n3. Add wet ingredients (sugar, butter, eggs, milk, vanilla) and mix well.  \n4. Stir in chocolate chips.  \n5. Pour into a greased cake pan.  \n6. Bake for 30\u201335 minutes or until a toothpick inserted into the center comes out clean.  \n7. Let it cool before serving.  \n\nEnjoy your cake! \ud83c\udf70",
+    "content": "To bake a chocolate cake, you'll need:\n\n1. Flour, sugar, baking powder, salt, and butter.\n2. Add eggs and milk.\n3. Mix well and pour into a greased pan.\n4. Bake at 350\u00b0F (175\u00b0C) for 30-35 minutes.\n5. Let it cool and frost it with chocolate.\n\nEnjoy your cake! \ud83d\ude0a",
     "refusal": null,
     "role": "assistant",
     "annotations": null,

@@ -1,0 +1,15 @@
+[
+  {
+    "role": "user",
+    "content": "I was born in 1990. How old am I in 2024?"
+  },
+  {
+    "content": "You are 24 years old in 2024.\n",
+    "refusal": null,
+    "role": "assistant",
+    "annotations": null,
+    "audio": null,
+    "function_call": null,
+    "tool_calls": null
+  }
+]

@@ -22,74 +22,20 @@
     "id": ""
   },
   {
-    "content": "",
+    "content": "The current time is 10:30 AM.",
     "additional_kwargs": {
       "refusal": null
     },
     "response_metadata": {
       "token_usage": {
-        "completion_tokens": 16,
+        "completion_tokens": 13,
         "prompt_tokens": 243,
-        "total_tokens": 259,
+        "total_tokens": 256,
         "completion_tokens_details": null,
         "prompt_tokens_details": null
       },
       "model_provider": "openai",
-      "model_name": "4baqqkhgyx3x8y331qb3iq5s60w21xwi-Qwen3-1.7B-Q8_0.gguf",
-      "system_fingerprint": "",
-      "id": "",
-      "finish_reason": "tool_calls",
-      "logprobs": null
-    },
-    "type": "ai",
-    "name": null,
-    "id": "",
-    "tool_calls": [
-      {
-        "name": "get_datetime",
-        "args": {},
-        "id": "0",
-        "type": "tool_call"
-      }
-    ],
-    "invalid_tool_calls": [],
-    "usage_metadata": {
-      "input_tokens": 243,
-      "output_tokens": 16,
-      "total_tokens": 259,
-      "input_token_details": {},
-      "output_token_details": {}
-    }
-  },
-  {
-    "content": "2026-01-27T14:32:33.990923",
-    "additional_kwargs": {},
-    "response_metadata": {
-      "id": "",
-      "system_fingerprint": ""
-    },
-    "type": "tool",
-    "name": "get_datetime",
-    "id": "",
-    "tool_call_id": "0",
-    "artifact": null,
-    "status": "success"
-  },
-  {
-    "content": "The current time is January 27, 2026, at 14:32:33.",
-    "additional_kwargs": {
-      "refusal": null
-    },
-    "response_metadata": {
-      "token_usage": {
-        "completion_tokens": 27,
-        "prompt_tokens": 108,
-        "total_tokens": 135,
-        "completion_tokens_details": null,
-        "prompt_tokens_details": null
-      },
-      "model_provider": "openai",
-      "model_name": "4baqqkhgyx3x8y331qb3iq5s60w21xwi-Qwen3-1.7B-Q8_0.gguf",
+      "model_name": "w24ddqp61r9kibryfl6kx9zq87rf16v8-Qwen3-4B-Q4_K_M.gguf",
       "system_fingerprint": "",
       "id": "",
       "finish_reason": "stop",
@@ -101,9 +47,42 @@
     "tool_calls": [],
     "invalid_tool_calls": [],
     "usage_metadata": {
-      "input_tokens": 108,
-      "output_tokens": 27,
-      "total_tokens": 135,
+      "input_tokens": 243,
+      "output_tokens": 13,
+      "total_tokens": 256,
+      "input_token_details": {},
+      "output_token_details": {}
+    }
+  },
+  {
+    "content": "",
+    "additional_kwargs": {
+      "refusal": null
+    },
+    "response_metadata": {
+      "token_usage": {
+        "completion_tokens": 1,
+        "prompt_tokens": 65,
+        "total_tokens": 66,
+        "completion_tokens_details": null,
+        "prompt_tokens_details": null
+      },
+      "model_provider": "openai",
+      "model_name": "w24ddqp61r9kibryfl6kx9zq87rf16v8-Qwen3-4B-Q4_K_M.gguf",
+      "system_fingerprint": "",
+      "id": "",
+      "finish_reason": "stop",
+      "logprobs": null
+    },
+    "type": "ai",
+    "name": null,
+    "id": "",
+    "tool_calls": [],
+    "invalid_tool_calls": [],
+    "usage_metadata": {
+      "input_tokens": 65,
+      "output_tokens": 1,
+      "total_tokens": 66,
       "input_token_details": {},
       "output_token_details": {}
     }
@@ -127,13 +106,13 @@
     "response_metadata": {
       "token_usage": {
         "completion_tokens": 21,
-        "prompt_tokens": 342,
-        "total_tokens": 363,
+        "prompt_tokens": 278,
+        "total_tokens": 299,
         "completion_tokens_details": null,
         "prompt_tokens_details": null
       },
       "model_provider": "openai",
-      "model_name": "4baqqkhgyx3x8y331qb3iq5s60w21xwi-Qwen3-1.7B-Q8_0.gguf",
+      "model_name": "w24ddqp61r9kibryfl6kx9zq87rf16v8-Qwen3-4B-Q4_K_M.gguf",
       "system_fingerprint": "",
       "id": "",
       "finish_reason": "tool_calls",
@@ -148,15 +127,15 @@
         "args": {
           "location": "San Francisco"
         },
-        "id": "1",
+        "id": "0",
         "type": "tool_call"
       }
     ],
     "invalid_tool_calls": [],
     "usage_metadata": {
-      "input_tokens": 342,
+      "input_tokens": 278,
       "output_tokens": 21,
-      "total_tokens": 363,
+      "total_tokens": 299,
       "input_token_details": {},
       "output_token_details": {}
     }
@@ -171,7 +150,7 @@
     "type": "tool",
     "name": "get_weather",
     "id": "",
-    "tool_call_id": "1",
+    "tool_call_id": "0",
     "artifact": null,
     "status": "success"
   },
@@ -183,13 +162,13 @@
     "response_metadata": {
       "token_usage": {
         "completion_tokens": 17,
-        "prompt_tokens": 193,
-        "total_tokens": 210,
+        "prompt_tokens": 129,
+        "total_tokens": 146,
         "completion_tokens_details": null,
         "prompt_tokens_details": null
       },
       "model_provider": "openai",
-      "model_name": "4baqqkhgyx3x8y331qb3iq5s60w21xwi-Qwen3-1.7B-Q8_0.gguf",
+      "model_name": "w24ddqp61r9kibryfl6kx9zq87rf16v8-Qwen3-4B-Q4_K_M.gguf",
       "system_fingerprint": "",
       "id": "",
       "finish_reason": "stop",
@@ -201,9 +180,9 @@
     "tool_calls": [],
     "invalid_tool_calls": [],
     "usage_metadata": {
-      "input_tokens": 193,
+      "input_tokens": 129,
       "output_tokens": 17,
-      "total_tokens": 210,
+      "total_tokens": 146,
       "input_token_details": {},
       "output_token_details": {}
     }

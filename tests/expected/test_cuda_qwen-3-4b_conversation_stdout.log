@@ -34,7 +34,7 @@
     "content": "What's the weather like today?"
   },
   {
-    "content": "I can't check the weather right now, but you can check a weather app or website for the latest update! Would you like me to help you find one?",
+    "content": "I don't have real-time information, but you can check the weather using a weather app or website. Would you like me to help you find one?",
     "refusal": null,
     "role": "assistant",
     "annotations": null,
@@ -47,7 +47,7 @@
     "content": "How do I bake a chocolate cake?"
   },
   {
-    "content": "Sure! Here's a simple chocolate cake recipe:\n\n**Ingredients:**\n- 1 1/2 cups all-purpose flour\n- 1 cup granulated sugar\n- 1/2 cup unsweetened cocoa powder\n- 1 tsp baking powder\n- 1/2 tsp baking soda\n- 1/2 tsp salt\n- 2 large eggs\n- 1 cup milk\n- 1/2 cup vegetable oil\n- 1 tsp vanilla extract\n- 1/2 cup boiling water\n\n**Instructions:**\n1. Preheat oven to 350\u00b0F (175\u00b0C). Grease and flour a 9-inch round cake pan.\n2. In a large bowl, whisk together flour, sugar, cocoa, baking powder, baking soda, and salt.\n3. Add eggs, milk, oil, and vanilla. Mix until well combined.\n4. Stir in boiling water. Fold in gently.\n5. Pour batter into prepared pan. Bake for 30\u201335 minutes or until a toothpick inserted in the center comes out clean.\n6. Let cool before frosting.\n\nEnjoy your chocolate cake! \ud83c\udf6b\ud83c\udf82",
+    "content": "Sure! Here's a simple chocolate cake recipe:\n\n### **Chocolate Cake Recipe**\n\n**Ingredients:**\n- 1 \u00bd cups all-purpose flour\n- 1 cup granulated sugar\n- \u00be cup unsweetened cocoa powder\n- 1 tsp baking powder\n- \u00bd tsp baking soda\n- \u00bd tsp salt\n- 2 eggs\n- 1 cup milk\n- \u00bd cup oil\n- 1 tsp vanilla extract\n- 1 cup hot water\n\n**Instructions:**\n1. Preheat oven to 350\u00b0F (175\u00b0C). Grease and flour a 9-inch round cake pan.\n2. In a large bowl, whisk together flour, sugar, cocoa powder, baking powder, baking soda, and salt.\n3. Add eggs, milk, oil, and vanilla extract. Mix well.\n4. Stir in hot water. The mixture will be wet and runny.\n5. Pour into the prepared pan. Bake for 30\u201335 minutes or until a toothpick inserted in the center comes out clean.\n6. Let cool before frosting.\n\n**Optional:** Add a layer of chocolate frosting or sprinkles for extra flavor!\n\nLet me know if you'd like a more detailed version! \ud83c\udf70",
     "refusal": null,
     "role": "assistant",
     "annotations": null,
@@ -60,7 +60,7 @@
     "content": "What's the tallest mountain in the world?"
   },
   {
-    "content": "The tallest mountain in the world is Mount Everest. It is located in the Himalayas, on the border between Nepal and China. Its height is 8,848 meters (29,029 feet) above sea level. \ud83c\udfd4\ufe0f",
+    "content": "The tallest mountain in the world is Mount Everest. It is located in the Himalayas, on the border between Nepal and China. Its height is approximately 8,848 meters (29,029 feet) above sea level.",
     "refusal": null,
     "role": "assistant",
     "annotations": null,
