@@ -12,6 +12,9 @@ response = client.chat.completions.create(
             "content": "Please write 10 paragraphs about apples.",
         },
     ],
+    # llama.cpp supports setting `logprobs` to an integer to get logprobs for the
+    # top N tokens. OpenAI's API officially only supports a boolean here, so passing
+    # a number will print a (harmless) warning.
     logprobs=5,
     extra_body={"chat_template_kwargs": {"enable_thinking": False}},
     model="",
