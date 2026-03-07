@@ -71,7 +71,7 @@
               # The resulting aliases look like `ri-tests-<runner>`, e.g.,
               # `ri-tests-all` or `ri-tests-cpu`.
               environment.shellAliases = lib.mapAttrs' (
-                key: runner: lib.nameValuePair "ri-tests-${key}" runner
+                key: runner: lib.nameValuePair "ri-tests-${key}" (lib.getExe runner)
               ) self.packages.${config.nixpkgs.system}.tests;
 
               # Faster squashfs compression, we don't care about file size
