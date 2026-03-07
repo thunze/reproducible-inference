@@ -25,7 +25,7 @@ let
       path: exampleDerivation: rec {
         name = "${acceleration}_${lib.concatStringsSep "_" path}";
         inherit exampleDerivation;
-        expectedOutputFile = ./expected/test_${name}_stdout.log;
+        expectedOutputFile = "${./expected/test_${name}_stdout.log}";
       }) examples.${acceleration};
 
   # Create a test runner for a list of test cases
