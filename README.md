@@ -51,6 +51,27 @@ NIXPKGS_ALLOW_UNFREE=1 nix run --impure .#tests.all
 > [!NOTE]
 > The `NIXPKGS_ALLOW_UNFREE=1` environment variable is required for CUDA GPU inference because the NVIDIA CUDA toolkit is classified as unfree software in Nixpkgs. `--impure` is required for the Nix CLI to allow reading the `NIXPKGS_ALLOW_UNFREE` environment variable.
 
+## Running reproducibility tests using a NixOS live image
+
+Build the custom NixOS live image:
+
+```bash
+NIXPKGS_ALLOW_UNFREE=1 nix build --impure .#liveSystemImage
+```
+
+Write the built image to a USB drive (replace `/dev/sdX` with the actual device path of your USB drive):
+
+```bash
+sudo dd if=result/iso/nixos-gnome-26.05.20260117.3327b11-x86_64-linux.iso of=/dev/sdX bs=4M status=progress
+```
+
+- Boot your machine from the USB drive. This will require disabling secure boot in your BIOS settings.
+- Connect to the internet and open a terminal in the live environment.
+- Enter one of the following commands to run the reproducibility tests, depending on the acceleration mode you want to test:
+  - For CPU inference: `ri-tests-cpu`
+  - For CUDA GPU inference: `ri-tests-cuda`
+  - For all tests: `ri-tests-all`
+
 ## Supported configurations
 
 Currently, two acceleration modes are supported:
